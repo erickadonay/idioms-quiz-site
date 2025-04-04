@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Idioms Describing Feelings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h2 {
+      margin-top: 40px;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin: 5px 0;
+    }
+    .submit-btn {
+      margin-top: 20px;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Idioms Describing Feelings</h1>
+
+  <h2>Activity 1: Match Vocabulary</h2>
+  <p>Instructions: Match each idiom with its correct meaning. Type the correct letter.</p>
+  <div class="question">
+    1. Over the moon: <input type="text" id="q1">
+  </div>
+  <div class="question">
+    2. Down in the dumps: <input type="text" id="q2">
+  </div>
+  <div class="question">
+    3. On cloud nine: <input type="text" id="q3">
+  </div>
+  <div class="question">
+    4. Fed up: <input type="text" id="q4">
+  </div>
+  <div class="question">
+    5. Under the weather: <input type="text" id="q5">
+  </div>
+
+  <h2>Activity 2: Multiple Choice</h2>
+  <div class="question">
+    1. If you win the lottery, you will be...
+    <label><input type="radio" name="mc1" value="a"> a) Down in the dumps</label>
+    <label><input type="radio" name="mc1" value="b"> b) On cloud nine</label>
+    <label><input type="radio" name="mc1" value="c"> c) Fed up</label>
+  </div>
+  <div class="question">
+    2. When someone is tired of their job, they are...
+    <label><input type="radio" name="mc2" value="a"> a) Fed up</label>
+    <label><input type="radio" name="mc2" value="b"> b) Over the moon</label>
+    <label><input type="radio" name="mc2" value="c"> c) On cloud nine</label>
+  </div>
+
+  <h2>Activity 3: Fill in the Blanks</h2>
+  <div class="question">
+    1. After getting a promotion, John was <input type="text" id="fill1">.
+  </div>
+  <div class="question">
+    2. She’s been feeling <input type="text" id="fill2"> since her cat passed away.
+  </div>
+  <div class="question">
+    3. I’m <input type="text" id="fill3">, so I’ll stay home today.
+  </div>
+
+  <h2>Activity 4: Order by Emotion</h2>
+  <p>Instructions: Type the idioms from the most positive to the most negative.</p>
+  <ol>
+    <li><input type="text" id="ord1"></li>
+    <li><input type="text" id="ord2"></li>
+    <li><input type="text" id="ord3"></li>
+    <li><input type="text" id="ord4"></li>
+    <li><input type="text" id="ord5"></li>
+  </ol>
+
+  <button class="submit-btn" onclick="checkAnswers()">Submit</button>
+
+  <script>
+    function checkAnswers() {
+      let correctAnswers = {
+        q1: 'a',
+        q2: 'b',
+        q3: 'c',
+        q4: 'd',
+        q5: 'e',
+        mc1: 'b',
+        mc2: 'a',
+        fill1: 'on cloud nine',
+        fill2: 'down in the dumps',
+        fill3: 'under the weather',
+        ord1: 'On cloud nine',
+        ord2: 'Over the moon',
+        ord3: 'Fed up',
+        ord4: 'Under the weather',
+        ord5: 'Down in the dumps'
+      };
+      
+      Object.keys(correctAnswers).forEach(id => {
+        let element = document.getElementById(id) || document.querySelector(`input[name="${id}"]:checked`);
+        if (element) {
+          let value = element.value.trim().toLowerCase();
+          let correctValue = correctAnswers[id].toLowerCase();
+          if (value === correctValue) {
+            element.style.border = '2px solid green';
+          } else {
+            element.style.border = '2px solid red';
+          }
+        }
+      });
+      alert('Answers checked! Green = Correct, Red = Incorrect.');
+    }
+  </script>
+</body>
+</html>
